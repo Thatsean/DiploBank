@@ -1,4 +1,4 @@
-# DiploBank Economy Providor
+# DiploBank Economy Plugin
 ### WARNING: THIS PLUGIN IS STILL IN DEVELOPMENT AND IS NON-FUNCTIONAL
 ## Features
 - VaultUnlocked Support (Partial)
