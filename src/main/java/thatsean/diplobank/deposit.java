@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class deposit {
+public class Deposit { // Fixed class name to PascalCase
 
     public static boolean addCurrencyToInventory(Player player, Material currency, int amount) {
         ItemStack itemStack = new ItemStack(currency, amount);

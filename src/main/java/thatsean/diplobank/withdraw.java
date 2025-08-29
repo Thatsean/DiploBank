@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class withdraw {
+public class Withdraw { // Fixed class name to PascalCase
 
     public static boolean removeCurrencyFromInventory(Player player, Material currency, int amount) {
         ItemStack itemStack = new ItemStack(currency, amount);

@@ -19,14 +19,15 @@ public class AdminCommands implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("bankadmin.use")) {
+        if (!sender.hasPermission("mcurbank.admin")) { // Fixed permission node
             sender.sendMessage("You do not have permission to use this command.");
             return true;
         }
 
         if (command.getName().equalsIgnoreCase("bankadmin")) {
-            if (args.length < 3) {
+            if (args.length < 4) { // Fixed argument length check
                 sender.sendMessage("Usage: /bankadmin deposit <player> <currency> <amount>");
+                sender.sendMessage("Usage: /bankadmin withdraw <player> <currency> <amount>");
                 return true;
             }
 
@@ -57,7 +58,7 @@ public class AdminCommands implements CommandExecutor, TabCompleter {
 
                 if (player.isOnline() && player.getPlayer() != null) {
                     Player onlinePlayer = player.getPlayer();
-                    boolean success = deposit.addCurrencyToInventory(onlinePlayer, currencyItem, amount);
+                    boolean success = Deposit.addCurrencyToInventory(onlinePlayer, currencyItem, amount);
                     if (success) {
                         sender.sendMessage("Successfully deposited " + amount + " of " + currencyName + " to player " + player.getName());
                     } else {
@@ -68,11 +69,6 @@ public class AdminCommands implements CommandExecutor, TabCompleter {
                 }
                 return true;
             } else if (subCommand.equalsIgnoreCase("withdraw")) {
-                if (args.length < 4) {
-                    sender.sendMessage("Usage: /bankadmin withdraw <player> <currency> <amount>");
-                    return true;
-                }
-
                 String playerName = args[1];
                 String currencyName = args[2];
                 int amount;
@@ -98,7 +94,7 @@ public class AdminCommands implements CommandExecutor, TabCompleter {
 
                 if (player.isOnline() && player.getPlayer() != null) {
                     Player onlinePlayer = player.getPlayer();
-                    boolean success = withdraw.removeCurrencyFromInventory(onlinePlayer, currencyItem, amount);
+                    boolean success = Withdraw.removeCurrencyFromInventory(onlinePlayer, currencyItem, amount);
                     if (success) {
                         sender.sendMessage("Successfully withdrew " + amount + " of " + currencyName + " from player " + player.getName());
                     } else {
