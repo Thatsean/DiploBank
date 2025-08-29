@@ -1,0 +1,14 @@
+name: Diplobank
+main: thatsean.diplobank.Main
+version: '0.1'
+description: A Paper plugin for Diplobank.
+api-version: '1.19'
+dependencies:
+  bootstrap:
+    # Let's say that RegistryPlugin registers some data that your plugin needs to use
+    # We don't need this during runtime, so it's not required in the server section.
+    # However, can be added to both if needed
+    RegistryPlugin:
+      load: BEFORE
+      required: true
+      join-classpath: true # Defaults to true

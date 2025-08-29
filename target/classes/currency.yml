@@ -1,0 +1,6 @@
+#Scheme:
+#[CurrencyUUID]:
+#  currency-name: "Name"
+#  currency-item: [item name from Material enum, e.g., DIAMOND, GOLD_INGOT]
+#  currency-symbol: "Symbol"
+#  owner: "UUID"

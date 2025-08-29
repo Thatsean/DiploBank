@@ -1,0 +1,43 @@
+name: Diplobank
+main: thatsean.diplobank.Main
+version: 0.1
+description: A plugin for managing Diplobank features.
+authors:
+  - Sean G
+  - Diplomacy Craft Team
+api-version: 1.19
+depend:
+  - Vault
+loadbefore:
+  - Vault
+prefix: '[MCurBank]'
+defaultpermission: op
+permissions:
+  mcurbank.admin:
+    description: Allows access to admin commands.
+    default: op
+  mcurbank.user:
+    description: Allows access to user commands.
+    default: true
+commands:
+  balance:
+    description: "How much money do I have?"
+    usage: "/balance <currency_name"
+    aliases: [bal, balance]
+    permission: mcurbank.user
+  newcurrency:
+    description: "Create a new currency."
+    usage: "/newcurrency <currency_name> <currency-currency_symbol> <currency_item>"
+    aliases: [nc, newcurrency]
+    permission: mcurbank.user
+  deletecurrency:
+    description: "Delete an existing currency."
+    usage: "/deletecurrency <currency_name>"
+    aliases: [dc, deletecurrency]
+    permission: mcurbank.user
+  admin:
+    description: "Admin command for Diplobank."
+    usage: "/bankadmin <subcommand>"
+    aliases: [admin]
+    permission: mcurbank.admin
+    permission-message: "You do not have permission to use this command."
